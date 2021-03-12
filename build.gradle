@@ -22,18 +22,6 @@ apply plugin: "org.spongepowered.mixin"
 apply plugin: "com.github.johnrengelman.shadow"
 apply plugin: "java"
 
-repositories {
-    
-    mavenLocal()
-    mavenCentral()
-    jcenter()
-    
-    maven {
-        name = 'spongepowered-repo'
-        url = 'http://repo.spongepowered.org/maven/'
-    }
-}
-
 version = "0.0.1"
 // Trying to make this compatible with jitpack
 group = "com.github.3arthqu4ke"
@@ -50,26 +38,29 @@ minecraft {
     makeObfSourceJar = true
 }
 
-sourceSets {
-    main.java.srcDirs += 'src/main/java'
-    main.java.srcDirs += '../shared/main/java'
-    main.resources.srcDirs += '../shared/main/resources'
-}
-
-
 repositories {
+
     mavenLocal()
     mavenCentral()
     jcenter()
 
     maven { url 'https://jitpack.io' }
-    maven { url 'https://repo.spongepowered.org/maven/' }
+    maven {
+        name = 'spongepowered-repo'
+        url = 'https://repo.spongepowered.org/maven'
+    }
 }
 
 dependencies {
-    compile("org.spongepowered:mixin:0.7.10-SNAPSHOT") {
+    compile("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
         exclude module: "launchwrapper"
     }
+}
+
+sourceSets {
+    main.java.srcDirs += 'src/main/java'
+    main.java.srcDirs += '../shared/main/java'
+    main.resources.srcDirs += '../shared/main/resources'
 }
 
 processResources {
