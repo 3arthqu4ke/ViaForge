@@ -34,8 +34,9 @@ repositories {
     }
 }
 
-version = "b1"
-group = "de.flori2007.viaforge"
+version = "0.0.1"
+// Trying to make this compatible with jitpack
+group = "com.github.3arthqu4ke"
 archivesBaseName = "ViaForge"
 
 sourceCompatibility = JavaVersion.VERSION_1_8
